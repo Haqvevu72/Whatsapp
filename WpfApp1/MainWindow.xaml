@@ -19,17 +19,19 @@
             <Label FontSize="20" Foreground="BlueViolet"  FontWeight="Bold" Margin="80,13,0,0">Elgun Haqverdiyev</Label>
         </Grid>
 
-        <ListView Grid.Row="1" Background="LightGray" ItemsSource="{Binding messages}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <ListView  Name="Whatsapp" Grid.Row="1" Background="LightGray" ItemsSource="{Binding messages}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <Grid Width="438" Height="42">
-                <Label Height="35" Width="48" Background="AntiqueWhite" Content="{Binding senttime}" HorizontalAlignment="Left" Margin="10,4,0,4" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-                <TextBlock HorizontalAlignment="Right" Background="AliceBlue" Text="{Binding message}" Margin="0,0,45,0" Height="35" FontSize="16" TextAlignment="Center"></TextBlock>
+                <Label Name="Time" Height="35" Width="48" Background="AntiqueWhite" Content="{Binding senttime}" HorizontalAlignment="Left" Margin="10,4,0,4" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                <TextBlock x:Name="message" HorizontalAlignment="Right" Background="AliceBlue" Text="{Binding message}" Margin="0,0,45,0" Height="35" Width="Auto" FontSize="16" TextAlignment="Justify"></TextBlock>
             </Grid>
         </ListView>
 
         <Grid Grid.Row="2" Background="LightGray">
             <TextBox Name="MessageBar" Height="43" Width="330" HorizontalAlignment="Left" Margin="30,0,0,0" FontSize="20"></TextBox>
-            <Button Height="43" Width="43" Margin="345,0,0,0" Background="White" Click="Button_Click"></Button>
-            <Image Source="C:\Users\Elgun\source\repos\WpfApp1\WpfApp1\Tutorial\icons8-sent-48.png" Width="33" Height="33" Margin="350,0,0,0"></Image>
+            <Button Height="43" Width="43" Margin="345,0,0,0" Background="White" Click="Button_Click">
+                <Image Source="C:\Users\Elgun\Source\Repos\Whatsapp\WpfApp1\Tutorial\icons8-sent-48.png" Width="33" Height="33" Margin="7,0,0,0"></Image>
+            </Button>
+
         </Grid>
     </Grid>
 </Window>

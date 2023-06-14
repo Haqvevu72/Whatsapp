@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using System.IO;
+using System.Runtime.Remoting.Messaging;
 
 namespace WpfApp1
 {
@@ -20,14 +23,13 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        List<Message> messages { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            DateTime date = DateTime.Now;
-            List<Message> messages = new List<Message>() 
-            {
-                new Message() {message="Hello , How Are you today ?",senttime=date.TimeOfDay}
-            };
+            string mesdes = File.ReadAllText("C:\\Users\\Elgun\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json");
+            messages = new List<Message>(JsonConvert.DeserializeObject<List<Message>>(mesdes));
             DataContext = messages;
         }
 
@@ -37,8 +39,11 @@ namespace WpfApp1
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
+        { 
+            DateTime time= DateTime.Now;
+            messages.Add(new Message() { message = MessageBar.Text, senttime = time.TimeOfDay });
+            string messer = JsonConvert.SerializeObject(messages);
+            File.WriteAllText("C:\\Users\\Elgun\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json", messer);
         }
     }
 }
