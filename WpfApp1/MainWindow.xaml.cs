@@ -30,7 +30,7 @@ namespace WpfApp1
             InitializeComponent();
             string mesdes = File.ReadAllText("C:\\Users\\Elgun\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json");
             messages = new List<Message>(JsonConvert.DeserializeObject<List<Message>>(mesdes));
-            DataContext = messages;
+            Whatsapp.ItemsSource = messages;
         }
 
         private void DataTemplate_DpiChanged(object sender, DpiChangedEventArgs e)
@@ -39,11 +39,27 @@ namespace WpfApp1
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        { 
-            DateTime time= DateTime.Now;
-            messages.Add(new Message() { message = MessageBar.Text, senttime = time.TimeOfDay });
-            string messer = JsonConvert.SerializeObject(messages);
-            File.WriteAllText("C:\\Users\\Elgun\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json", messer);
+        {
+            if (!(string.IsNullOrEmpty(MessageBar.Text)))
+            {
+                DateTime time = DateTime.Now;
+                Whatsapp.ItemsSource = null;
+                messages.Add(new Message() { message = MessageBar.Text, senttime = time.TimeOfDay });
+                Whatsapp.ItemsSource = messages;
+                MessageBar.Clear();
+                string messer = JsonConvert.SerializeObject(messages);
+                File.WriteAllText("C:\\Users\\Elgun\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json", messer);
+            }
+            else 
+            {
+                MessageBox.Show("Message bar is empty", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
+    }
+
+    public class Message
+    {
+        public string message { get; set; }
+        public TimeSpan senttime { get; set; }
     }
 }
