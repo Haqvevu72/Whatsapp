@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="LightGreen">
+            <Ellipse Width="45" Height="45" HorizontalAlignment="Left" Margin="20,0,0,0" Fill="LightCoral"></Ellipse>
+            <Label FontSize="23" HorizontalAlignment="Left" Margin="24,10,0,0" Foreground="White">EH</Label>
+            <Label FontSize="20" Foreground="BlueViolet"  FontWeight="Bold" Margin="80,13,0,0">Elgun Haqverdiyev</Label>
+        </Grid>
+
+        <ListView Grid.Row="1" Background="LightGray" ItemsSource="{Binding messages}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Grid Width="438" Height="42">
+                <Label Height="35" Width="48" Background="AntiqueWhite" Content="{Binding senttime}" HorizontalAlignment="Left" Margin="10,4,0,4" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                <TextBlock HorizontalAlignment="Right" Background="AliceBlue" Text="{Binding message}" Margin="0,0,45,0" Height="35" FontSize="16" TextAlignment="Center"></TextBlock>
+            </Grid>
+        </ListView>
+
+        <Grid Grid.Row="2" Background="LightGray">
+            <TextBox Name="MessageBar" Height="43" Width="330" HorizontalAlignment="Left" Margin="30,0,0,0" FontSize="20"></TextBox>
+            <Button Height="43" Width="43" Margin="345,0,0,0" Background="White" Click="Button_Click"></Button>
+            <Image Source="C:\Users\Elgun\source\repos\WpfApp1\WpfApp1\Tutorial\icons8-sent-48.png" Width="33" Height="33" Margin="350,0,0,0"></Image>
+        </Grid>
+    </Grid>
+</Window>
