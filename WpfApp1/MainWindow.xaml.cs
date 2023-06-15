@@ -28,7 +28,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            string mesdes = File.ReadAllText("C:\\Users\\Elgun\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json");
+            string mesdes = File.ReadAllText("C:\\Users\\Haqve_vu72\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json");
             messages = new List<Message>(JsonConvert.DeserializeObject<List<Message>>(mesdes));
             Whatsapp.ItemsSource = messages;
         }
@@ -48,7 +48,7 @@ namespace WpfApp1
                 Whatsapp.ItemsSource = messages;
                 MessageBar.Clear();
                 string messer = JsonConvert.SerializeObject(messages);
-                File.WriteAllText("C:\\Users\\Elgun\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json", messer);
+                File.WriteAllText("C:\\Users\\Haqve_vu72\\Source\\Repos\\Whatsapp\\WpfApp1\\messages.json", messer);
             }
             else 
             {

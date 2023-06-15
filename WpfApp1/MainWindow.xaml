@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="450">
+        Title="MainWindow" Height="600" Width="450" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -16,7 +16,7 @@
         <Grid Grid.Row="0" Background="LightGreen">
             <Ellipse Width="45" Height="45" HorizontalAlignment="Left" Margin="20,0,0,0" Fill="LightCoral"></Ellipse>
             <Label FontSize="23" HorizontalAlignment="Left" Margin="24,10,0,0" Foreground="White">EH</Label>
-            <Label FontSize="20" Foreground="BlueViolet"  FontWeight="Bold" Margin="80,13,0,0">Elgun Haqverdiyev</Label>
+            <Label FontSize="20" Foreground="DimGray"  FontWeight="Bold" Margin="80,13,0,0">Elgun Haqverdiyev</Label>
         </Grid>
 
         <ListView Name="Whatsapp" Grid.Row="1" Background="LightGray" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -34,7 +34,7 @@
         <Grid Grid.Row="2" Background="LightGray">
             <TextBox Name="MessageBar" Height="31" Width="330" HorizontalAlignment="Left" Margin="30,0,0,0" FontSize="20"></TextBox>
             <Button Height="31" Width="31" Margin="345,0,0,0" Background="White" Click="Button_Click">
-                <Image Source="C:\Users\Elgun\Source\Repos\Whatsapp\WpfApp1\Tutorial\icons8-sent-48.png" Width="27" Height="27" Margin="2,0,0,0"></Image>
+                <Image Source="C:\Users\Haqve_vu72\Source\Repos\Whatsapp\WpfApp1\Tutorial\icons8-sent-48.png" Width="27" Height="27" Margin="2,0,0,0"></Image>
             </Button>
 
         </Grid>
